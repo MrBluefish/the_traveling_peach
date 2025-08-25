@@ -1,0 +1,15 @@
+/ (project root)
+├─ index.html
+├─ about.html
+├─ assets/
+│  ├─ css/
+│  │  └─ main.css
+│  └─ js/
+│     └─ main.js
+└─ images/
+   ├─ tp_logo.svg
+   ├─ peachtree.svg
+   ├─ botanical1.jpg
+   ├─ botanical2.jpg
+   ├─ botanical3.jpg
+   └─ botanical4.jpg

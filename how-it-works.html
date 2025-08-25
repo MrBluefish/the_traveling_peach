@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How It Works | The Traveling Peach</title>
+  <meta name="description" content="How The Traveling Peach parties work: pick your date, we pack the glam, you shop and have fun." />
+  <link rel="stylesheet" href="assets/css/main.css?v=4">
+</head>
+<body>
+  <a href="#main" class="sr-only">Skip to content</a>
+
+  <!-- NAVBAR (shared) -->
+  <div class="nav-wrap" id="top">
+    <nav class="nav" role="navigation" aria-label="Primary">
+      <a href="index.html" class="brand" aria-label="Go to home">
+        <img src="images/tp_logo.svg" alt="The Traveling Peach logo" class="logo">
+        <span>the traveling peach</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="menu" id="menu">
+        <a href="index.html#home">home</a>
+        <a href="about.html">about</a>
+        <div class="dropdown" id="categoriesDropdown">
+          <button type="button" aria-haspopup="true" aria-expanded="false">learn more ▾</button>
+          <div class="dropdown-menu" role="menu" aria-label="Categories">
+            <a href="how-it-works.html" role="menuitem" aria-current="page">how it works</a>
+            <a href="index.html#cat-stories" role="menuitem">stories</a>
+            <a href="index.html#cat-plan" role="menuitem">plan your event</a>
+          </div>
+        </div>
+        <form class="search" role="search">
+          <input name="q" type="search" placeholder="Search…" aria-label="Search" />
+          <button type="submit">Search</button>
+        </form>
+        <a href="index.html#signup" class="cta">Sign Up</a>
+      </div>
+    </nav>
+
+    <div class="mobile-panel" id="mobilePanel" hidden>
+      <a href="index.html#home">home</a>
+      <a href="about.html">about</a>
+      <button type="button" id="mobileDropdownBtn" aria-expanded="false">learn more ▾</button>
+      <div id="mobileDropdownMenu" hidden>
+        <a href="how-it-works.html" aria-current="page">how it works</a>
+        <a href="index.html#cat-stories">stories</a>
+        <a href="index.html#cat-plan">plan your event</a>
+      </div>
+      <form class="search" role="search">
+        <input name="q" type="search" placeholder="Search…" aria-label="Search" />
+        <button type="submit">search</button>
+      </form>
+      <a href="index.html#signup" class="cta" style="display:inline-block;margin-top:.5rem;">Sign Up</a>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main id="main" class="container">
+    <section class="card hero" style="grid-template-columns:1fr;">
+      <div>
+        <h1>How It Works</h1>
+        <p class="lead">Three simple steps to a fun, no-pressure beauty pop-up.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <ol class="steps" aria-label="How it works steps">
+        <li class="step">
+          <h3 class="step-title">Pick Your Date</h3>
+          <p class="step-body">Choose a time for us to come to your home or event space.</p>
+        </li>
+        <li class="step">
+          <h3 class="step-title">We Pack the Glam</h3>
+          <p class="step-body">We bring luxury cosmetics &amp; perfumes at unbeatable prices.</p>
+        </li>
+        <li class="step">
+          <h3 class="step-title">Shop, Sip, Laugh</h3>
+          <p class="step-body">Enjoy a fun, no-pressure shopping experience.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="card" style="text-align:center">
+      <h2>Ready to host?</h2>
+      <p>Lock in a date and we’ll handle the rest.</p>
+      <a href="index.html#signup" class="btn cta" style="max-width:420px; margin: .5rem auto 0; display:block;">Book Your Event</a>
+    </section>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> the traveling peach. All rights reserved. <br> website by <span class="rt">RunningTag Webcraft</span></p>
+    </footer>
+  </main>
+
+  <button id="backToTop" aria-label="Back to top">↑ Top</button>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

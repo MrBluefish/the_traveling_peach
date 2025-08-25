@@ -1,0 +1,207 @@
+:root{
+  --peach:#ffb38a;
+  --peach-600:#ff996a;
+  --ink:#1f2937;
+  --ink-2:#4b5563;
+  --paper:#ffffff;
+  --paper-2:#f6f6f7;
+  --ring:rgba(255,153,106,.5);
+}
+
+html{scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+  color:var(--ink);
+  line-height:1.5;
+  background-image:url("../../images/peachtree.svg");
+  background-size:30%;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.sr-only{
+  position:absolute!important;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden
+}
+
+/* NAVBAR */
+.nav-wrap{position:sticky;top:0;z-index:1000}
+.nav{
+  position:relative;display:flex;align-items:center;justify-content:space-between;
+  padding:.75rem 1rem;background:#ffcc99;border-bottom:1px solid rgba(0,0,0,.05);
+  backdrop-filter:saturate(180%) blur(10px);-webkit-backdrop-filter:saturate(180%) blur(10px);
+}
+.brand{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;color:inherit;font-weight:700;letter-spacing:.2px}
+.logo{width:35px;height:35px;border-radius:50%;object-fit:cover;box-shadow:0 2px 6px rgba(255,153,106,.4) inset}
+
+.menu{display:none;gap:.5rem;align-items:center}
+.menu a,.menu button{
+  appearance:none;border:0;background:transparent;font:inherit;cursor:pointer;text-decoration:none;
+  color:var(--ink-2);padding:.5rem .75rem;border-radius:.2rem
+}
+.menu a:hover,.menu button:hover,.menu a:focus-visible,.menu button:focus-visible{
+  background:var(--paper-2);outline:2px solid transparent;box-shadow:0 0 0 3px var(--ring)
+}
+.menu .cta{background:var(--peach);color:#111;font-weight:600}
+.menu .cta:hover{background:var(--peach-600)}
+
+.dropdown{position:relative}
+.dropdown[aria-expanded="true"] .dropdown-menu{opacity:1;transform:translateY(0);pointer-events:auto}
+.dropdown-menu{
+  position:absolute;left:0;top:calc(100% + .25rem);min-width:220px;background:var(--paper);
+  border:1px solid rgba(0,0,0,.06);border-radius:.75rem;padding:.25rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);opacity:0;transform:translateY(-6px);transition:.18s ease;pointer-events:none
+}
+
+/* Search */
+.search{position:relative;display:flex;align-items:center;gap:.5rem;border:1px solid rgba(0,0,0,.08);padding:.4rem .6rem;border-radius:.2rem;background:#fff;min-width:220px}
+.search input{flex:1;border:0;outline:none;font:inherit}
+.search button{border:0;background:var(--peach);padding:.35rem .6rem;border-radius:.2rem;font-weight:600}
+
+/* Mobile */
+.hamburger{appearance:none;border:0;background:transparent;padding:.5rem;border-radius:.5rem}
+.hamburger:focus-visible{box-shadow:0 0 0 3px var(--ring)}
+.mobile-panel{display:none;border-top:1px solid rgba(0,0,0,.06);background:rgba(255,255,255,.9);padding:.5rem}
+.mobile-panel a,.mobile-panel button{display:block;width:100%;text-align:left;padding:.75rem;border-radius:.6rem;color:var(--ink-2);background:transparent;border:0}
+.mobile-panel a:hover,.mobile-panel button:hover{background:var(--paper-2)}
+
+/* Layout */
+.container{max-width:1100px;margin:0 auto;padding:1rem}
+.hero{padding:4.5rem 0 2rem;display:grid;gap:1rem;align-items:center}
+.hero h1{margin:0;font-size:clamp(1.8rem,3.8vw,3rem)}
+.hero p{margin:0;color:var(--ink-2)}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:2rem 0 4rem}
+.card{
+  background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:.5rem;padding:1rem;
+  box-shadow:0 6px 8px rgb(12 9 8 / 20%)
+}
+
+.card-grid a.card{
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+.card-grid a.card:hover,
+.card-grid a.card:focus-visible{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 18px rgba(0,0,0,.25);
+  outline: none;
+}
+
+.card-bg{ background-size: cover; background-position: center; }
+
+/* Image assignments */
+#cat-about  { background-image: url("../../images/botanical1.jpg"); }
+#cat-works  { background-image: url("../../images/botanical2.jpg"); }
+#cat-stories{ background-image: url("../../images/botanical3.jpg"); }
+#cat-deals  { background-image: url("../../images/botanical4.jpg"); }
+
+
+/* === CATEGORY IMAGE CARDS (Option A) === */
+.card-bg{
+  position: relative;           /* host the overlay */
+  overflow: hidden;             /* keep overlay clipped to rounded corners */
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Overlay for consistent contrast over photos */
+.card-bg::before{
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    /* soft vertical gradient + a light wash */
+    linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,.05)),
+    rgba(0,0,0,.25);
+  border-radius: inherit;       /* matches .card rounded corners */
+}
+
+/* Ensure text sits above the overlay */
+.card-bg > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* Headings without stroke (no Safari artifacts) */
+.card-bg h3{
+  margin: .6rem 0 .8rem;
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  color: #fff;
+  text-shadow: none;
+  -webkit-text-stroke: 0;               /* explicitly remove outline */
+  -webkit-font-smoothing: subpixel-antialiased; /* crisper on Safari */
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+
+/* Generic form bits */
+.input{width:100%;padding:.7rem;border:1px solid rgba(0,0,0,.1);border-radius:.6rem;margin:.5rem 0}
+.btn{display:inline-block;width:100%;padding:.7rem;border:0;border-radius:.6rem;font-weight:700}
+.btn.cta{background:var(--peach);}
+
+/* About page */
+.about-container{max-width:700px;margin:auto}
+
+/* Footer & utilities */
+.site-footer{padding:3rem 0;text-align:center;color:var(--ink-2)}
+.rt{font-weight:600}
+
+/* Back to top */
+#backToTop{
+  position:fixed;right:1rem;bottom:1rem;z-index:999;display:none;padding:.6rem .8rem;border-radius:.2rem;border:1px solid rgba(0,0,0,.08);
+  background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.08);cursor:pointer;font-weight:600
+}
+#backToTop:focus-visible{outline:2px solid transparent;box-shadow:0 0 0 3px var(--ring)}
+
+/* ===== Modal ===== */
+.modal[hidden]{ display:none !important; }
+.modal{
+  position:fixed; inset:0; z-index:1200; display:grid; place-items:center;
+}
+.modal__backdrop{
+  position:absolute; inset:0; background:rgba(0,0,0,.35);
+  backdrop-filter:saturate(140%) blur(2px);
+}
+.modal__card{
+  position:relative; z-index:1; width:min(560px, 92vw);
+  background:#fff; border:1px solid rgba(0,0,0,.06);
+  border-radius:.75rem; padding:1.25rem 1.25rem 1rem;
+  box-shadow:0 18px 45px rgba(0,0,0,.25);
+}
+.modal__close{
+  position:absolute; right:.5rem; top:.5rem;
+  appearance:none; border:0; background:transparent; font-size:1.5rem; line-height:1; cursor:pointer;
+  border-radius:.4rem; padding:.2rem .4rem;
+}
+.modal__close:focus-visible{ box-shadow:0 0 0 3px var(--ring); outline:2px solid transparent; }
+.label{ display:block; margin:.75rem 0 .25rem; font-weight:600; color:var(--ink); }
+
+/* Responsive */
+@media (min-width:920px){
+  .menu{display:flex}
+  .hamburger,.mobile-panel{display:none!important}
+  .hero{grid-template-columns:1.2fr 1fr}
+}
+/* Force dropdown menu links to look distinct */
+.dropdown-menu a{
+  display: block;
+  padding: .6rem .75rem;
+  border-radius: .5rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease;
+}
+.dropdown-menu a:hover,
+.dropdown-menu a:focus-visible{
+  background: var(--peach);
+  color: #111;
+}
