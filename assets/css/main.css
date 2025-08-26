@@ -184,6 +184,60 @@ body{
 .modal__close:focus-visible{ box-shadow:0 0 0 3px var(--ring); outline:2px solid transparent; }
 .label{ display:block; margin:.75rem 0 .25rem; font-weight:600; color:var(--ink); }
 
+/* ========== Responsive Breakpoints for The Traveling Peach ========== */
+
+/* Small tablets (≥600px) */
+@media (min-width: 600px) {
+  /* Hero: split into 2 columns (text + signup card) */
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  /* Card grid: 2 cards per row */
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Headings scale up slightly */
+  .hero h1 {
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+  }
+}
+
+/* Medium screens / landscape tablets (≥900px) */
+@media (min-width: 900px) {
+  /* Navbar switches to desktop layout */
+  .menu { display: flex; }
+  .hamburger, .mobile-panel { display: none !important; }
+
+  /* Hero heading larger */
+  .hero h1 {
+    font-size: clamp(2rem, 2.8vw, 2.6rem);
+  }
+
+  /* Card grid: 3 cards per row */
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large desktops (≥1200px) */
+@media (min-width: 1200px) {
+  /* Constrain container width so it doesn’t stretch too wide */
+  .container { max-width: 1200px; }
+
+  /* Hero heading gets a big, bold presence */
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  /* Card grid: 4 cards per row */
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 /* Responsive */
 @media (min-width:920px){
   .menu{display:flex}
