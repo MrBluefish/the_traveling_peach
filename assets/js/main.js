@@ -71,87 +71,126 @@ if (backToTop){
 }
 
 // --- Google Calendar signup modal flow --- //
-const signupBtn = document.getElementById('signupBtn');
-const signupModal = document.getElementById('signupModal');
-const closeEls = signupModal ? signupModal.querySelectorAll('[data-close-modal]') : [];
+function openModal() {
+  const modal = document.getElementById('signupModal');
+  if (!modal) return;
+  modal.hidden = false;
+  modal.setAttribute('aria-hidden', 'false');
 
-function openModal(){
-  if (!signupModal) return;
-  signupModal.hidden = false;
-  signupModal.setAttribute('aria-hidden', 'false');
-  // Prefill datetime-local to a sensible default (next day at 7pm)
+  // Prefill tomorrow 7pm if empty
   const dt = document.getElementById('startLocal');
-  if (dt && !dt.value){
+  if (dt && !dt.value) {
     const now = new Date();
     now.setDate(now.getDate() + 1);
     now.setHours(19, 0, 0, 0);
-    // format YYYY-MM-DDTHH:MM
     const pad = n => String(n).padStart(2, '0');
-    const val = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
-    dt.value = val;
+    dt.value = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
   }
 }
-function closeModal(){
-  if (!signupModal) return;
-  signupModal.hidden = true;
-  signupModal.setAttribute('aria-hidden', 'true');
+
+function closeModal() {
+  const modal = document.getElementById('signupModal');
+  if (!modal) return;
+  modal.hidden = true;
+  modal.setAttribute('aria-hidden', 'true');
 }
 
-// Open/close bindings
-if (signupBtn){ signupBtn.addEventListener('click', e => { e.preventDefault(); openModal(); }); }
-closeEls.forEach(el => el.addEventListener('click', closeModal));
-if (signupModal){
-  signupModal.addEventListener('click', e => { if (e.target.classList.contains('modal__backdrop')) closeModal(); });
-  document.addEventListener('keydown', e => { if (!signupModal.hidden && e.key === 'Escape') closeModal(); });
-}
+// Delegated event listeners (works across all pages/buttons)
+document.addEventListener('click', e => {
+  if (e.target.closest('[data-signup-btn]')) {
+    e.preventDefault();
+    openModal();
+  }
+  if (e.target.closest('[data-close-modal]') || e.target.classList.contains('modal__backdrop')) {
+    closeModal();
+  }
+});
 
-// Form → Google Calendar link
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && !document.getElementById('signupModal').hidden) closeModal();
+});
+
+// Form → Google Calendar
 const gcalForm = document.getElementById('gcalForm');
-if (gcalForm){
+if (gcalForm) {
   gcalForm.addEventListener('submit', e => {
     e.preventDefault();
     const fd = new FormData(gcalForm);
-    const hostName = (fd.get('hostName') || '').toString().trim();
-    const hostEmail = (fd.get('hostEmail') || '').toString().trim();
-    const startLocal = fd.get('startLocal'); // "YYYY-MM-DDTHH:MM"
-    const durationMin = parseInt(fd.get('duration') || '120', 10);
-    const location = (fd.get('location') || '').toString().trim();
+    const hostName = fd.get('hostName') || '';
+    const hostEmail = fd.get('hostEmail') || '';
+    const startLocal = fd.get('startLocal');
+    const duration = parseInt(fd.get('duration') || '120', 10);
+    const location = fd.get('location') || '';
 
-    if (!startLocal){ alert('Please choose a start date & time.'); return; }
+    if (!startLocal) return alert('Please pick a date & time');
 
-    // Convert local datetime to UTC for Google Calendar `dates=...Z/...Z`
     const start = new Date(startLocal);
-    const end = new Date(start.getTime() + durationMin * 60000);
+    const end = new Date(start.getTime() + duration * 60000);
+    const pad = n => String(n).padStart(2, '0');
+    const fmt = d => `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}Z`;
 
-    const fmt = (d) => {
-      // YYYYMMDDTHHMMSSZ
-      const pad = n => String(n).padStart(2, '0');
-      return `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}Z`;
-    };
-
-    const title = `the traveling peach – home pop-up`;
-    const details = [
-      `Host: ${hostName}${hostEmail ? ` (${hostEmail})` : ''}`,
-      `We bring luxury cosmetics & perfumes at unbeatable prices.`,
-      `Questions? Reply to this invite or contact us via the website.`
-    ].join('%0A');
-
-    const dates = `${fmt(start)}/${fmt(end)}`;
     const params = new URLSearchParams({
       action: 'TEMPLATE',
-      text: title,
-      details: details,
+      text: 'The Traveling Peach – Home Pop-Up',
+      details: `Host: ${hostName} (${hostEmail})%0AWe bring luxury cosmetics & perfumes.%0AQuestions? Contact us via the site.`,
+      dates: `${fmt(start)}/${fmt(end)}`
     });
     if (location) params.set('location', location);
-    params.set('dates', dates);
 
-    const gcalUrl = `https://calendar.google.com/calendar/render?${params.toString()}`;
-
-    // Open in a new tab so user can review & save
-    window.open(gcalUrl, '_blank', 'noopener,noreferrer');
-
-    // Close modal & optionally show a toast
+    window.open(`https://calendar.google.com/calendar/render?${params}`, '_blank');
     closeModal();
-    setTimeout(()=> alert('Opening Google Calendar…'), 50);
+    setTimeout(() => alert('Opening Google Calendar…'), 100);
   });
 }
+// --- ICS download fallback --- //
+const downloadBtn = document.getElementById('downloadICS');
+if (downloadBtn && gcalForm) {
+  downloadBtn.addEventListener('click', e => {
+    e.preventDefault();
+    const fd = new FormData(gcalForm);
+    const hostName = fd.get('hostName') || '';
+    const hostEmail = fd.get('hostEmail') || '';
+    const startLocal = fd.get('startLocal');
+    const duration = parseInt(fd.get('duration') || '120', 10);
+    const location = fd.get('location') || '';
+
+    if (!startLocal) return alert('Please pick a date & time');
+
+    const start = new Date(startLocal);
+    const end = new Date(start.getTime() + duration * 60000);
+
+    // Format YYYYMMDDTHHMMSS
+    const pad = n => String(n).padStart(2, '0');
+    const fmt = d =>
+      `${d.getUTCFullYear()}${pad(d.getUTCMonth()+1)}${pad(d.getUTCDate())}T${pad(d.getUTCHours())}${pad(d.getUTCMinutes())}${pad(d.getUTCSeconds())}Z`;
+
+    const ics = `
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//The Traveling Peach//EN
+BEGIN:VEVENT
+UID:${Date.now()}@thetravelingpeach.com
+DTSTAMP:${fmt(new Date())}
+DTSTART:${fmt(start)}
+DTEND:${fmt(end)}
+SUMMARY:The Traveling Peach – Home Pop-Up
+DESCRIPTION:Host: ${hostName} (${hostEmail})\\nWe bring luxury cosmetics & perfumes.\\nQuestions? Contact us via the site.
+${location ? `LOCATION:${location}` : ''}
+END:VEVENT
+END:VCALENDAR
+`.trim();
+
+    // Create file & trigger download
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'the-traveling-peach-event.ics';
+    a.click();
+    URL.revokeObjectURL(url);
+
+    closeModal();
+    setTimeout(() => alert('Downloading calendar file…'), 100);
+  });
+}
+

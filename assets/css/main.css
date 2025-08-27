@@ -74,10 +74,14 @@ body{
 .hero p{margin:0;color:var(--ink-2)}
 
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:2rem 0 4rem}
-.card{
-  background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:.5rem;padding:1rem;
-  box-shadow:0 6px 8px rgb(12 9 8 / 20%)
+.card {
+  background: rgba(255, 255, 255, 0.65); /* 85% opaque white */
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 6px 8px rgb(12 9 8 / 20%);
 }
+
 
 .card-grid a.card{
   display: block;

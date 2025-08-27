@@ -43,7 +43,7 @@
           <input name="q" type="search" placeholder="Search…" aria-label="Search" />
           <button type="submit">search</button>
         </form>
-        <a href="#" class="cta" id="signupBtn" data-signup-btn>event sign-up</a>
+        <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">event sign-up</a>
       </div>
     </nav>
 
@@ -135,7 +135,12 @@
       <label class="label" for="location">Location (optional)</label>
       <input class="input" id="location" name="location" type="text" placeholder="Your home or venue">
 
-      <button type="submit" class="btn cta" style="margin-top:.5rem;">Add to Google Calendar</button>
+    <div style="margin-top:.75rem; display:flex; flex-direction:column; gap:.5rem;">
+      <button type="submit" class="btn cta">Add to Google Calendar</button>
+      <button type="button" id="downloadICS" class="btn" style="background:#eee; color:#333;">
+        Download .ics (Other Calendars)
+      </button>
+    </div>
     </form>
   </div>
 </div>
