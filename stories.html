@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stories | The Traveling Peach</title>
+  <meta name="description" content="Stories from The Traveling Peach events — see how customers enjoy shopping luxury cosmetics and perfumes at home.">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <!-- NAVBAR -->
+  <div class="nav-wrap" id="top">
+    <nav class="nav" role="navigation" aria-label="Primary">
+      <a href="index.html" class="brand" aria-label="Go to home">
+        <img src="./images/tp_logo.svg" alt="The Traveling Peach logo" class="logo">
+        <span>the traveling peach</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="menu" id="menu">
+        <a href="index.html">home</a>
+        <a href="about.html">about</a>
+        <a href="how-it-works.html">how it works</a>
+        <a href="stories.html" aria-current="page">stories</a>
+        <a href="#" class="cta" data-signup-btn>host a peach party</a>
+      </div>
+    </nav>
+    <div class="mobile-panel" id="mobilePanel" hidden>
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="how-it-works.html">how it works</a>
+      <a href="stories.html" aria-current="page">stories</a>
+      <a href="#" class="cta" data-signup-btn>Book Your Event</a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <header class="hero" style="text-align:center;">
+      <h1>Stories from The Traveling Peach</h1>
+      <p>See how women and families enjoy the pop-up experience — shopping, sipping, and laughing together.</p>
+    </header>
+
+    <!-- Stories Grid -->
+    <section class="card-grid">
+      <article class="card">
+        <img src="./images/story1.png" alt="Guests enjoying a Traveling Peach ladies' night" style="width:100%;border-radius:.5rem;">
+        <h3>“A Fun Night In”</h3>
+        <p>Sarah invited her friends for wine and makeup tips — and everyone left with luxury perfumes at unbeatable prices.</p>
+      </article>
+
+      <article class="card">
+        <img src="./images/story2.png" alt="Perfume display at home event" style="width:100%;border-radius:.5rem;">
+        <h3>“Luxury Made Simple”</h3>
+        <p>Monica discovered her new signature scent without having to step into a department store.</p>
+      </article>
+
+      <article class="card">
+        <img src="./images/story3.png" alt="Group photo of happy customers" style="width:100%;border-radius:.5rem;">
+        <h3>“Memories with Friends”</h3>
+        <p>Ladies’ night turned into a tradition — every season, her friends gather for a Traveling Peach pop-up.</p>
+      </article>
+    </section>
+
+        <section class="carousel-container">
+  <h2 class="carousel-title">Customer Stories</h2>
+  <div class="carousel" id="storiesCarousel">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="./images/peachbags.png" alt="Story 1 - happy guests shopping at a peach pop-up">
+      </div>
+      <div class="carousel-slide">
+        <img src="./images/chaps.png" alt="Story 2 - perfumes displayed at an event">
+      </div>
+      <div class="carousel-slide">
+        <img src="./images/blackboxes.png" alt="Story 3 - friends enjoying the Traveling Peach">
+      </div>
+      <!-- Add more slides as needed -->
+    </div>
+    <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
+    <button class="carousel-btn next" aria-label="Next slide">›</button>
+  </div>
+</section>
+
+
+    <!-- Call to Action -->
+    <section class="card" style="text-align:center; margin:2rem auto;">
+      <h2>Ready to host your own story?</h2>
+      <p>Book your Traveling Peach event today and create memories with your friends.</p>
+      <a href="#" class="btn cta" data-signup-btn>Book Your Event</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="container" style="padding:3rem 0; text-align:center; color: var(--ink-2);">
+    <p>&copy; <span id="year"></span> the traveling peach. All rights reserved.<br>
+    website by <span class="com">RunningTag Webcraft</span></p>
+  </footer>
+
+  <!-- SIGNUP MODAL -->
+  <div class="modal" id="signupModal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__card" role="document">
+      <button class="modal__close" aria-label="Close" data-close-modal>×</button>
+      <h2 id="signupTitle">Book an Event</h2>
+      <p class="lead">Pick a date & time—we’ll add it to your Google Calendar.</p>
+      <form id="gcalForm">
+        <label for="hostName">Your name</label>
+        <input id="hostName" name="hostName" type="text" required placeholder="Jane Host">
+        <label for="hostEmail">Email</label>
+        <input id="hostEmail" name="hostEmail" type="email" required placeholder="you@example.com">
+        <label for="startLocal">Event start</label>
+        <input id="startLocal" name="startLocal" type="datetime-local" required>
+        <label for="duration">Duration</label>
+        <select id="duration" name="duration">
+          <option value="60">1 hour</option>
+          <option value="90">1.5 hours</option>
+          <option value="120" selected>2 hours</option>
+          <option value="180">3 hours</option>
+        </select>
+        <label for="location">Location (optional)</label>
+        <input id="location" name="location" type="text" placeholder="Your home or venue">
+        <button type="submit" class="btn cta" style="margin-top:.5rem;">Add to Google Calendar</button>
+      </form>
+    </div>
+  </div>
+
+  <button id="backToTop" aria-label="Back to top">↑ Top</button>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

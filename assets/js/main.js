@@ -194,3 +194,26 @@ END:VCALENDAR
   });
 }
 
+// ===== Carousel Logic =====
+const track = document.querySelector('#storiesCarousel .carousel-track');
+const slides = Array.from(track.children);
+const nextButton = document.querySelector('#storiesCarousel .next');
+const prevButton = document.querySelector('#storiesCarousel .prev');
+
+let currentIndex = 0;
+
+function updateCarousel() {
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+nextButton.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+});
+
+prevButton.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
+});
+
+
