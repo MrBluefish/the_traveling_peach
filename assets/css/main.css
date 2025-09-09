@@ -452,6 +452,25 @@ main.container {
   flex-direction: column;
 }
 
+.how-it-works-page, .steps, h1, .lead {
+  list-style: decimal;  /* remove default numbers if you want */
+  list-style-position: inside;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+.steps .step {
+  margin-bottom: 1.5rem;
+}
+
+.steps li::marker {
+  font-weight: bold;
+}
+.lead {
+  font-size: 1.25rem;
+  color: var(--ink-2);
+  margin-bottom: 2rem;
+}
 .site-footer {
   margin-top: auto;     /* pushes footer to the bottom of the column */
 }
