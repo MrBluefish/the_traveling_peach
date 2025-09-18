@@ -1,4 +1,146 @@
+
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Lines | The Traveling Peach</title>
+  <meta name="description" content="Explore The Traveling Peach product lines—luxury perfumes, everyday cosmetics, travel kits, and seasonal bundles you can sample at a private Peach Party." />
+  <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="stories-page products-page">
+  <!-- NAVBAR -->
+  <div class="nav-wrap" id="top">
+    <nav class="nav" role="navigation" aria-label="Primary">
+      <a href="index.html" class="brand" aria-label="Go to home">
+        <img src="./images/tp_logo.svg" alt="The Traveling Peach logo" class="logo">
+        <span>the traveling peach</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="menu" id="menu">
+        <a href="index.html#home">home</a>
+        <a href="about.html">about</a>
+
+        <div class="dropdown" id="categoriesDropdown">
+          <button type="button" aria-haspopup="true" aria-expanded="false">learn more ▾</button>
+          <div class="dropdown-menu" role="menu" aria-label="Categories">
+            <a href="how-it-works.html" role="menuitem">how it works</a>
+            <a href="stories.html" role="menuitem" aria-current="page">product lines</a>
+            <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">host a peach party</a>
+          </div>
+        </div>
+
+        <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">host a peach party</a>
+      </div>
+    </nav>
+
+    <div class="mobile-panel" id="mobilePanel" hidden>
+      <a href="index.html">home</a>
+      <a href="about.html">about</a>
+      <a href="how-it-works.html">how it works</a>
+      <a href="stories.html" aria-current="page">product lines</a>
+      <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">host a peach party</a>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <header class="hero" style="text-align:center;">
+      <h1>Our Product Lines</h1>
+      <p>Explore curated collections you can sample at a private Peach Party—luxury fragrances, everyday cosmetics, travel kits, and seasonal bundles.</p>
+    </header>
+
+    <!-- FEATURED CAROUSEL -->
+    <section class="carousel-container">
+      <h2 class="carousel-title">Featured Collections</h2>
+      <div class="carousel" id="storiesCarousel" aria-live="polite">
+        <div class="carousel-track">
+          <!-- Swap these src paths for your real product photos -->
+          <div class="carousel-slide">
+            <img class="img-1" src="./images/ranger.png" alt="Assorted luxury perfume bottles" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img class="img-2" src="./images/blackboxes.png" alt="Cosmetics: lipsticks, palettes, and brushes" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img class="img-3" src="./images/chaps.png" alt="Travel-sized beauty kits and pouches" loading="lazy">
+          </div>
+          <div class="carousel-slide">
+            <img class="img-4" src="./images/peachbags.png" alt="Seasonal gift bundles and boxes" loading="lazy">
+          </div>
+        </div>
+        <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
+        <button class="carousel-btn next" aria-label="Next slide">›</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </section>
+
+    <!-- PRODUCT LINES GRID -->
+    <section class="card-grid" aria-label="Product lines">
+      <article class="card" id="perfumes">
+        <img src="./images/comingsoon.svg" alt="Perfume line" loading="lazy" style="width:100%;border-radius:.5rem;">
+        <h3>Luxury Perfumes</h3>
+        <p>Designer and niche scents at below-retail prices. Sample in person, discover your signature.</p>
+        
+      </article>
+
+      <article class="card" id="cosmetics">
+        <img src="./images/comingsoon2.svg" alt="Cosmetics line" loading="lazy" style="width:100%;border-radius:.5rem;">
+        <h3>Everyday Cosmetics</h3>
+        <p>Quality lip, eye, and face products—handpicked shades and finishes that travel light.</p>
+        
+      </article>
+
+      <article class="card" id="travel">
+        <img src="./images/comingsoon3.svg" alt="Travel kits" loading="lazy" style="width:100%;border-radius:.5rem;">
+        <h3>Travel Kits</h3>
+        <p>Curated minis and TSA-friendly bundles so your routine packs fast and stays simple.</p>
+        
+      </article>
+
+      <article class="card" id="seasonal">
+        <img src="./images/products/seasonal-card.jpg" alt="Seasonal bundles" loading="lazy" style="width:100%;border-radius:.5rem;">
+        <h3>Seasonal Bundles</h3>
+        <p>Limited runs timed to the season—great gifts with exclusive mix-and-match deals.</p>
+        <p class="small">specials vary</p>
+      </article>
+    </section>
+
+    <!-- VALUE PROPS / BADGES -->
+    <section class="card" style="text-align:center">
+      <h2>Why shop our lines?</h2>
+      <p>Below-retail pricing · Authentic brands · Try before you buy · Friendly, no-pressure parties</p>
+    </section>
+
+    <!-- CTA -->
+    <section class="card" style="text-align:center; margin:2rem auto;">
+      <h2>Host a Peach Party to sample these</h2>
+      <p>Invite your friends, we bring the glam. Test scents and shades, then snag the deals.</p>
+      <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="btn cta" target="_blank" rel="noopener" style="max-width:420px; margin:.5rem auto 0; display:block;">Book Your Event</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="container" style="padding:3rem 0; text-align:center; color: var(--ink-2);">
+    <p>&copy; <span id="year"></span> the traveling peach. All rights reserved.<br>
+      website by <span class="com">RunningTag Webcraft</span></p>
+  </footer>
+
+  <button id="backToTop" aria-label="Back to top">↑ Top</button>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,7 +150,7 @@
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body class="stories-page">
-  <!-- NAVBAR -->
+  <-- NAVBAR 
   <div class="nav-wrap" id="top">
     <nav class="nav" role="navigation" aria-label="Primary">
       <a href="index.html" class="brand" aria-label="Go to home">
@@ -37,7 +179,7 @@
           </div>
         </div>
 
-        <!-- Primary CTA opens modal -->
+        <!-- Primary CTA opens modal 
     <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">host a peach party</a>
       </div>
     </nav>
@@ -51,41 +193,41 @@
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- MAIN CONTENT 
   <main class="container">
     <header class="hero" style="text-align:center;">
       <h1>Stories from The Traveling Peach</h1>
       <p>See how women and families enjoy the pop-up experience — shopping, sipping, and laughing together.</p>
     </header>
 
-    <!-- FEATURED CAROUSEL (hidden on small screens via CSS) -->
+    <!-- FEATURED CAROUSEL (hidden on small screens via CSS) 
     <section class="carousel-container">
   <h2 class="carousel-title">Customer Stories</h2>
   <div class="carousel" id="storiesCarousel" aria-live="polite">
     <div class="carousel-track">
       <div class="carousel-slide">
-        <img src="./images/peachbags.png" alt="Kraft bags with The Traveling Peach logo at a home pop-up" loading="lazy">
+          <img class="img-1" src="./images/peachbags.png" alt="Kraft bags with The Traveling Peach logo at a home pop-up" loading="lazy">     
+        </div>
+      <div class="carousel-slide zoonmed">
+        <img class="img-2" src="./images/chaps.png" alt="Branded chaspsticks" loading="lazy">
       </div>
       <div class="carousel-slide">
-        <img src="./images/chaps.png" alt="Branded chaspsticks" loading="lazy" style="object-position: 50% 24%">
+        <img class="img-3" src="./images/blackboxes.png" alt="Perfume gift boxes arranged on a table" loading="lazy">
       </div>
       <div class="carousel-slide">
-        <img src="./images/blackboxes.png" alt="Perfume gift boxes arranged on a table" loading="lazy">
-      </div>
-      <div class="carousel-slide">
-        <img src="./images/ranger.png" alt="Ranger Station products on a wood piece" loading="lazy" style="background-size:60%;">
+        <img class="img-4" src="./images/ranger.png" alt="Ranger Station products on a wood piece" loading="lazy">
       </div>
     </div>
     <button class="carousel-btn prev" aria-label="Previous slide">‹</button>
     <button class="carousel-btn next" aria-label="Next slide">›</button>
 
-    <!-- New pagination dots -->
+    <!-- New pagination dots 
     <div class="carousel-dots" id="carouselDots"></div>
   </div>
 </section>
 
 
-    <!-- STORIES GRID (centered on this page only via .stories-page scope) -->
+    <!-- STORIES GRID (centered on this page only via .stories-page scope) 
     <section class="card-grid">
       <article class="card">
         <img src="./images/story1.png" alt="Guests enjoying a Traveling Peach ladies' night" loading="lazy" style="width:100%;border-radius:.5rem;">
@@ -106,21 +248,21 @@
       </article>
     </section>
 
-    <!-- CALL TO ACTION -->
+    <!-- CALL TO ACTION 
     <section class="card" style="text-align:center; margin:2rem auto;">
       <h2>Ready to host your own story?</h2>
       <p>Book your Traveling Peach event today and create memories with your friends.</p>
-      <a href="#" class="btn cta" data-signup-btn>Book Your Event</a>
+        <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="btn cta" target="_blank" rel="noopener" style="max-width:420px; margin:.5rem auto 0; display:block;">Book Your Event</a>        
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- FOOTER 
   <footer class="container" style="padding:3rem 0; text-align:center; color: var(--ink-2);">
     <p>&copy; <span id="year"></span> the traveling peach. All rights reserved.<br>
       website by <span class="com">RunningTag Webcraft</span></p>
   </footer>
 
-  <!-- SIGNUP MODAL (shared) -->
+  <!-- SIGNUP MODAL (shared) 
   <div class="modal" id="signupModal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
     <div class="modal__backdrop" data-close-modal></div>
     <div class="modal__card" role="document">
@@ -151,4 +293,3 @@
   <button id="backToTop" aria-label="Back to top">↑ Top</button>
 <script src="assets/js/main.js" defer></script>
 </body>
-</html>

@@ -17,14 +17,6 @@
       alert('Search submitted: ' + q);
     });
   });
-  const signup = document.getElementById('signup');
-  if (signup) {
-    signup.addEventListener('submit', e => {
-      e.preventDefault();
-      const email = new FormData(signup).get('email') || '';
-      alert('Thanks for signing up! ' + (email ? `(${email})` : ''));
-    });
-  }
 })();
 
 // Mobile menu toggle

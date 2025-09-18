@@ -28,38 +28,29 @@
       </button>
 
       <div class="menu" id="menu">
-        <a href="index.html#home">home</a>
+        <a href="#home">home</a>
         <a href="about.html">about</a>
         <div class="dropdown" id="categoriesDropdown">
           <button type="button" aria-haspopup="true" aria-expanded="false">learn more ▾</button>
           <div class="dropdown-menu" role="menu" aria-label="Categories">
             <a href="how-it-works.html" role="menuitem">how it works</a>
-            <a href="stories.html#cat-stories" role="menuitem">stories</a>
+            <a href="stories.html#cat-stories" role="menuitem">product lines</a>
             <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">host a peach party</a>
-
           </div>
         </div>
-       <!-- <form class="search" role="search" aria-label="Site search">
-          <input name="q" type="search" placeholder="Search…" aria-label="Search" />
-          <button type="submit">search</button>
-        </form> -->
         <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">host a peach party</a>
       </div>
     </nav>
 
     <div class="mobile-panel" id="mobilePanel" hidden>
-      <a href="index.html#home">home</a>
+      <a href="#home">home</a>
       <a href="about.html">about</a>
       <button type="button" id="mobileDropdownBtn" aria-expanded="false">learn more ▾</button>
       <div id="mobileDropdownMenu" hidden>
         <a href="how-it-works.html">how it works</a>
-        <a href="index.html#cat-stories">stories</a>
+        <a href="stories.html#cat-stories">product lines</a>
         <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">host a peach party</a>
       </div>
-     <!-- <form class="search" role="search">
-        <input name="q" type="search" placeholder="search…" aria-label="search" />
-        <button type="submit">search</button>
-      </form> -->
       <a href="#signup" class="cta" style="display:inline-block;margin-top:.5rem;">host a peach party</a>
     </div>
   </div>
@@ -71,85 +62,106 @@
         <h1>handpicked quality, name-brand cosmetics and perfumes for busy folks.</h1>
         <p>welcome to <strong>the traveling peach</strong>. bring the shopping experience to you.</p>
       </div>
+
+      <!-- SIGNUP CARD -->
       <div class="card">
         <h3>book your event today!</h3>
         <p>enter your email for more info</p>
-        <form id="signup">
+
+        <form id="signup" novalidate>
           <label for="email" class="sr-only">Email</label>
           <input id="email" name="email" type="email" placeholder="you@example.com" required class="input" />
+
+          <label class="small" style="display:flex;align-items:center;gap:.5rem;margin:.5rem 0 1rem;">
+            <input type="checkbox" name="consent" value="yes" required>
+            I agree to receive updates from The Traveling Peach.
+          </label>
+
           <button type="submit" class="btn cta">submit email</button>
+
+          <span id="signup-status" aria-live="polite" class="small" style="display:block;margin-top:.5rem;"></span>
         </form>
       </div>
     </section>
 
+    <!-- FEATURED LINKS -->
     <section aria-labelledby="featured" class="card-grid">
-      <a href="about.html"  class="card card-bg" id="cat-about">
-        <h3>about</h3>
-      </a>
-      <a href="how-it-works.html" class="card card-bg" id="cat-works">
-        <h3>how it works</h3>
-      </a>
-      <a href="stories.html" class="card card-bg" id="cat-stories">
-        <h3>stories</h3>
-      </a>
-      <a class="card card-bg" id="cat-deals">
-        <h3>example</h3>
-      </a>
+      <a href="about.html"  class="card card-bg" id="cat-about"><h3>about</h3></a>
+      <a href="how-it-works.html" class="card card-bg" id="cat-works"><h3>how it works</h3></a>
+      <a href="stories.html" class="card card-bg" id="cat-stories"><h3>stories</h3></a>
     </section>
 
     <section id="about" class="card">
       <h2>what is the traveling peach?</h2>
       <p>born from a love of simple travel and good design, the traveling peach curates designer scents and cosmetics to make your next trip smoother—without overpacking your brain (or your bag).</p>
       <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">host a peach party</a>
-
     </section>
 
     <footer class="site-footer">
       <p>&copy; <span id="year"></span> the traveling peach. All rights reserved. <br> website by <span class="rt">RunningTag Webcraft</span></p>
     </footer>
-    <!-- Signup Modal -->
-<div class="modal" id="signupModal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
-  <div class="modal__backdrop" data-close-modal></div>
-  <div class="modal__card" role="document">
-    <button class="modal__close" aria-label="Close" data-close-modal>×</button>
-    <h2 id="signupTitle">Book an Event</h2>
-    <p class="lead">Pick a date & time—we’ll add a calendar event to your Google Calendar.</p>
-
-    <form id="gcalForm">
-      <label class="label" for="hostName">Your name</label>
-      <input class="input" id="hostName" name="hostName" type="text" placeholder="Jane Host" required>
-
-      <label class="label" for="hostEmail">Email</label>
-      <input class="input" id="hostEmail" name="hostEmail" type="email" placeholder="you@example.com" required>
-
-      <label class="label" for="startLocal">Event start (your local time)</label>
-      <input class="input" id="startLocal" name="startLocal" type="datetime-local" required>
-
-      <label class="label" for="duration">Duration</label>
-      <select class="input" id="duration" name="duration">
-        <option value="60">1 hour</option>
-        <option value="90">1.5 hours</option>
-        <option value="120" selected>2 hours</option>
-        <option value="180">3 hours</option>
-      </select>
-
-      <label class="label" for="location">Location (optional)</label>
-      <input class="input" id="location" name="location" type="text" placeholder="Your home or venue">
-
-    <div style="margin-top:.75rem; display:flex; flex-direction:column; gap:.5rem;">
-      <button type="submit" class="btn cta">Add to Google Calendar</button>
-      <button type="button" id="downloadICS" class="btn" style="background:#eee; color:#333;">
-        Download .ics (Other Calendars)
-      </button>
-    </div>
-    </form>
-  </div>
-</div>
-
   </main>
 
   <button id="backToTop" aria-label="Back to top">↑ Top</button>
 
+  <!-- Your existing JS file (keep it) -->
   <script src="assets/js/main.js" defer></script>
+
+  <!-- Signup POST handler: REPLACE the URL below with your /exec URL -->
+  <script>
+  (function(){
+    // ⬇️ PASTE YOUR WEB APP URL (must end with /exec) ⬇️
+    var WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwjtYkMLnhUfEi2D8AugN8UblGUfLe4qGOnCAK0H1GNyLMu0n7UMzvdFv_fwcRlr834/exec';
+
+    var form   = document.getElementById('signup');
+    if (!form) return;
+
+    var status = document.getElementById('signup-status');
+    var btn    = form.querySelector('button[type="submit"]');
+    var emailI = form.querySelector('input[name="email"]');
+    var consI  = form.querySelector('input[name="consent"]');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var email = (emailI.value || '').trim();
+      var consent = consI && consI.checked ? 'yes' : '';
+
+      // simple validation
+      if (!email) { emailI.focus(); return; }
+      if (!consent) { consI.focus(); return; }
+
+      // lock UI
+      btn.disabled = true;
+      btn.textContent = 'sending…';
+      if (status) status.textContent = '';
+
+      fetch(WEB_APP_URL, {
+      method: 'POST',
+      headers: {'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify({ email: email, consent: consent })
+      })
+
+      .then(function(res){ return res.text().then(function(t){ return { ok: res.ok, text: t }; }); })
+      .then(function(r){
+        var ok = r.ok;
+        try { var j = JSON.parse(r.text); ok = ok && j.ok === true; } catch(_){}
+        if (ok) {
+          form.reset();
+          window.location.href = 'thanks-2.html';
+        } else {
+          if (status) status.textContent = 'Sorry—could not save your email.';
+        }
+      })
+      .catch(function(){
+        if (status) status.textContent = 'Network error. Please try again.';
+      })
+      .finally(function(){
+        btn.disabled = false;
+        btn.textContent = 'submit email';
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
