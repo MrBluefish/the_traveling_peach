@@ -9,8 +9,51 @@
 </head>
 
 <body>
+     <div class="nav-wrap" id="top">
+    <nav class="nav" role="navigation" aria-label="Primary">
+      <a href="index.html" class="brand" aria-label="Go to home">
+        <img src="images/tp_logo.svg" alt="The Traveling Peach logo" class="logo">
+        <span>the traveling peach</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobilePanel">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="menu" id="menu">
+        <a href="#home">home</a>
+        <a href="about.html">about</a>
+        <div class="dropdown" id="categoriesDropdown">
+          <button type="button" aria-haspopup="true" aria-expanded="false">learn more ▾</button>
+          <div class="dropdown-menu" role="menu" aria-label="Categories">
+            <a href="how-it-works.html" role="menuitem">how it works</a>
+            <a href="stories.html#cat-stories" role="menuitem">product lines</a>
+            <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">host a peach party</a>
+          </div>
+        </div>
+        <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">host a peach party</a>
+      </div>
+    </nav>
+
+    <div class="mobile-panel" id="mobilePanel" hidden>
+      <a href="#home">home</a>
+      <a href="about.html">about</a>
+      <button type="button" id="mobileDropdownBtn" aria-expanded="false">learn more ▾</button>
+      <div id="mobileDropdownMenu" hidden>
+        <a href="how-it-works.html">how it works</a>
+        <a href="stories.html#cat-stories">product lines</a>
+        <a href="https://calendar.app.google/m7ziwVi2JWc92DFc7" class="cta" target="_blank" rel="noopener">host a peach party</a>
+      </div>
+      <a href="#signup" class="cta" style="display:inline-block;margin-top:.5rem;">host a peach party</a>
+    </div>
+  </div>
+
     <div class="bg-container">
-        <h1 class="main-heading">Famous Sports</h1>
+        <h1 class="main-heading"></h1>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
