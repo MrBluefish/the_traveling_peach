@@ -297,3 +297,5 @@ END:VCALENDAR
   slides.forEach(s => (s.style.minWidth = '100%'));
   updateCarousel();
 })();
+
+
